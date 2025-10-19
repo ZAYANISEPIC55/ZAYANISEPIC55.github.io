@@ -10,7 +10,7 @@
 html.dark {
   --main-color: #ffffff;      /* White text in dark mode */
   --bg-color: #1a1a1a;        /* Dark background */
-  --header-bg: #06a0e4;       /* Keep header KLM blue */
+  --header-bg: #06a0e4;       /* Header stays KLM blue in dark mode */
   --header-text: white;       /* Header text stays white */
   --button-bg: #333;          /* Dark mode button background */
   --button-text: #ffffff;     /* Button text in dark mode */
@@ -28,10 +28,23 @@ header {
   background-color: var(--header-bg);
   color: var(--header-text);
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   transition: background-color 0.3s, color 0.3s;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
 }
 
 main {
@@ -56,6 +69,17 @@ button:hover {
   transform: scale(1.1);
   background-color: #bbb;       /* subtle hover in light mode */
 }
+
 html.dark button:hover {
   background-color: #555;       /* subtle hover in dark mode */
 }
+
+/* Footer */
+footer {
+  margin-top: 80px;
+  text-align: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  color: #000;
+}
+
