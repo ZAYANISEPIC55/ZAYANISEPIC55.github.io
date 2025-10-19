@@ -1,20 +1,24 @@
 :root {
-  --bg-color: #eaf3fc;
-  --text-color: #004B87;
-  --header-bg: #004B87;
-  --header-text: white;
+  --main-color: #06a0e4;      /* KLM blue for light mode text and accents */
+  --bg-color: #eaf3fc;        /* Light mode background */
+  --header-bg: #06a0e4;       /* Header banner in KLM blue */
+  --header-text: white;       /* Header text */
+  --button-bg: #ffffff;       /* Light mode button background */
+  --button-text: #06a0e4;     /* Button text color */
 }
 
 html.dark {
-  --bg-color: #1a1a1a;
-  --text-color: #ffffff;
-  --header-bg: #222;
-  --header-text: #fff;
+  --main-color: #ffffff;      /* White text in dark mode */
+  --bg-color: #1a1a1a;        /* Dark background */
+  --header-bg: #06a0e4;       /* Keep header KLM blue */
+  --header-text: white;       /* Header text stays white */
+  --button-bg: #333;          /* Dark mode button background */
+  --button-text: #ffffff;     /* Button text in dark mode */
 }
 
 body {
   background-color: var(--bg-color);
-  color: var(--text-color);
+  color: var(--main-color);
   font-family: Arial, sans-serif;
   margin: 0;
   transition: background-color 0.3s, color 0.3s;
@@ -23,32 +27,35 @@ body {
 header {
   background-color: var(--header-bg);
   color: var(--header-text);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 20px;
   transition: background-color 0.3s, color 0.3s;
+}
+
+main {
+  text-align: center;
+  margin-top: 50px;
 }
 
 /* Buttons */
 button {
   border: none;
   border-radius: 5px;
-  background-color: #f0f0f0;
-  color: #000;
+  background-color: var(--button-bg);
+  color: var(--button-text);
   padding: 5px 10px;
   font-size: 18px;
   cursor: pointer;
-  transition: transform 0.2s, background-color 0.2s;
-}
-
-/* Dark mode buttons */
-html.dark button {
-  background-color: #333;
-  color: white;
+  transition: transform 0.2s, background-color 0.2s, color 0.2s;
 }
 
 /* Hover effect */
 button:hover {
-  transform: scale(1.1);       /* slightly enlarge */
-  background-color: #bbb;       /* subtle color change */
+  transform: scale(1.1);
+  background-color: #bbb;       /* subtle hover in light mode */
 }
 html.dark button:hover {
-  background-color: #555;       /* subtle dark hover */
+  background-color: #555;       /* subtle hover in dark mode */
 }
