@@ -5,43 +5,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!lightBtn || !darkBtn) return;
 
-  // Function to update button styles
-  function updateActiveButton() {
+  // Function to update button colors based on theme
+  function updateButtonColors() {
     if (html.classList.contains('dark')) {
-      // Dark mode active
-      darkBtn.style.backgroundColor = '#555'; // subtle highlight
-      lightBtn.style.backgroundColor = '#f0f0f0'; // neutral
+      // Dark mode → both buttons dark
+      lightBtn.style.backgroundColor = '#333';
+      darkBtn.style.backgroundColor = '#333';
+      lightBtn.style.color = 'white';
+      darkBtn.style.color = 'white';
     } else {
-      // Light mode active
-      lightBtn.style.backgroundColor = '#ddd'; // subtle highlight
-      darkBtn.style.backgroundColor = '#f0f0f0'; // neutral
+      // Light mode → both buttons light
+      lightBtn.style.backgroundColor = '#f0f0f0';
+      darkBtn.style.backgroundColor = '#f0f0f0';
+      lightBtn.style.color = '#000';
+      darkBtn.style.color = '#000';
     }
-    // Keep emoji colors normal
-    lightBtn.style.color = '#000';
-    darkBtn.style.color = '#000';
   }
 
-  // Load saved theme on page load
+  // Set theme on page load
   if (localStorage.getItem('theme') === 'dark') {
     html.classList.add('dark');
   } else {
     html.classList.remove('dark');
   }
 
-  // Update buttons immediately
-  updateActiveButton();
+  // Update button colors immediately
+  updateButtonColors();
 
   // Light button click
   lightBtn.addEventListener('click', () => {
     html.classList.remove('dark');
     localStorage.setItem('theme', 'light');
-    updateActiveButton();
+    updateButtonColors();
   });
 
   // Dark button click
   darkBtn.addEventListener('click', () => {
     html.classList.add('dark');
     localStorage.setItem('theme', 'dark');
-    updateActiveButton();
+    updateButtonColors();
   });
 });
+
