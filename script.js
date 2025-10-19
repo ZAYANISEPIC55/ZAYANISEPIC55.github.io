@@ -1,23 +1,29 @@
-// Get references to the HTML element and the two buttons
-const html = document.documentElement;
-const lightBtn = document.getElementById('light-btn');
-const darkBtn = document.getElementById('dark-btn');
+// Wait until the page has fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+  // Get references to the HTML element and the two buttons
+  const html = document.documentElement;
+  const lightBtn = document.getElementById('light-btn');
+  const darkBtn = document.getElementById('dark-btn');
 
-// Check saved theme on page load
-if (localStorage.getItem('theme') === 'dark') {
-  html.classList.add('dark');
-} else {
-  html.classList.remove('dark');
-}
+  // Safety check: stop if buttons aren't found
+  if (!lightBtn || !darkBtn) return;
 
-// Light button click event
-lightBtn.addEventListener('click', () => {
-  html.classList.remove('dark');
-  localStorage.setItem('theme', 'light');
-});
+  // Check saved theme on page load
+  if (localStorage.getItem('theme') === 'dark') {
+    html.classList.add('dark');
+  } else {
+    html.classList.remove('dark');
+  }
 
-// Dark button click event
-darkBtn.addEventListener('click', () => {
-  html.classList.add('dark');
-  localStorage.setItem('theme', 'dark');
+  // Light button click event
+  lightBtn.addEventListener('click', () => {
+    html.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  });
+
+  // Dark button click event
+  darkBtn.addEventListener('click', () => {
+    html.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  });
 });
