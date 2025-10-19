@@ -19,7 +19,7 @@ html.dark {
 body {
   background-color: var(--bg-color);
   color: var(--main-color);
-  font-family: Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Updated font */
   margin: 0;
   transition: background-color 0.3s, color 0.3s;
 }
