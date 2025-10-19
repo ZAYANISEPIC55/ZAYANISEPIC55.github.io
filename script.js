@@ -8,14 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to update active button style
   function updateActiveButton() {
     if (html.classList.contains('dark')) {
-      darkBtn.style.backgroundColor = '#555';
+      darkBtn.style.backgroundColor = '#555'; // active
       darkBtn.style.color = 'white';
-      lightBtn.style.backgroundColor = '#f0f0f0';
+      lightBtn.style.backgroundColor = '#f0f0f0'; // inactive
       lightBtn.style.color = '#000';
     } else {
-      lightBtn.style.backgroundColor = '#ffd700';
+      lightBtn.style.backgroundColor = '#ffd700'; // active
       lightBtn.style.color = '#000';
-      darkBtn.style.backgroundColor = '#f0f0f0';
+      darkBtn.style.backgroundColor = '#f0f0f0'; // inactive
       darkBtn.style.color = '#000';
     }
   }
@@ -34,13 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
   lightBtn.addEventListener('click', () => {
     html.classList.remove('dark');
     localStorage.setItem('theme', 'light');
-    updateActiveButton();
+    updateActiveButton(); // only light button highlighted
   });
 
   // Dark button click
   darkBtn.addEventListener('click', () => {
     html.classList.add('dark');
     localStorage.setItem('theme', 'dark');
-    updateActiveButton();
+    updateActiveButton(); // only dark button highlighted
   });
 });
