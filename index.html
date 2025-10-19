@@ -1,18 +1,28 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>KLM Virtual - Zayan Hussain</title>
-  <!-- Link to external CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header with light/dark buttons -->
-  <header style="display: flex; justify-content: flex-end; align-items: center; padding: 10px 20px; background-color: #004B87; color: white;">
-    <h1 style="margin: 0; font-size: 24px; flex-grow: 1;">KLM Virtual</h1>
-    <button id="light-btn" style="font-size: 18px; padding: 5px 10px; margin-right: 5px; cursor: pointer;">☀️</button>
-    <button id="dark-btn" style="font-size: 18px; padding: 5px 10px; cursor: pointer;">🌙</button>
+  <!-- Header with dark/light buttons -->
+  <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: #06a0e4; color: white;">
+    <h1 style="margin: 0; font-size: 24px;">KLM Virtual</h1>
+    <div>
+      <button id="light-btn" style="font-size: 18px; padding: 5px 10px; margin-right: 5px; cursor: pointer;">☀️</button>
+      <button id="dark-btn" style="font-size: 18px; padding: 5px 10px; cursor: pointer;">🌙</button>
+    </div>
   </header>
+
+  <!-- Navigation tabs -->
+  <nav style="display: flex; justify-content: center; gap: 30px; margin-top: 15px; font-weight: bold;">
+    <a href="#" style="text-decoration: none; color: inherit;">Home</a>
+    <a href="#" style="text-decoration: none; color: inherit;">Fleet</a>
+    <a href="#" style="text-decoration: none; color: inherit;">Contact</a>
+    <a href="#" style="text-decoration: none; color: inherit;">Our Team</a>
+    <a href="#" style="text-decoration: none; color: inherit;">Calendar</a>
+  </nav>
 
   <!-- Main content -->
   <main style="text-align: center; margin-top: 50px;">
@@ -21,7 +31,13 @@
     <p>This is the first page of your website — hosted free on GitHub Pages!</p>
   </main>
 
-  <!-- Link to external JS -->
+  <!-- Footer placeholder -->
+  <footer style="margin-top: 80px; text-align: center; padding: 20px; background-color: #f0f0f0; color: #000;">
+    <p>aaaaaaa bbbbbbb ccccccc ddddddd</p>
+    <p>eeeeeee fffffff ggggggg hhhhhhh</p>
+  </footer>
+
+  <!-- JS for dark/light mode -->
   <script src="script.js"></script>
 </body>
 </html>
