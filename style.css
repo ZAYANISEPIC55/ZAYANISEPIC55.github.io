@@ -22,42 +22,17 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   transition: background-color 0.3s, color 0.3s;
-  padding-top: 100px; /* Space for fixed header + nav */
 }
 
 header {
   background-color: var(--header-bg);
   color: var(--header-text);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* Keep title and buttons together */
   align-items: center;
-  padding: 10px 20px;
-  position: fixed;      /* Fixed at top */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;        /* On top of everything */
+  padding: 10px 40px;          /* Add spacing from edges */
+  gap: 20px;                   /* Space between title and buttons */
   transition: background-color 0.3s, color 0.3s;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 70px; /* Push nav below header inside fixed area */
-  font-weight: bold;
-  position: fixed;
-  top: 50px;          /* Right below header */
-  left: 0;
-  width: 100%;
-  background-color: var(--header-bg);
-  z-index: 999;
-  padding: 10px 0;
-}
-
-nav a {
-  text-decoration: none;
-  color: inherit;
 }
 
 main {
@@ -87,11 +62,3 @@ html.dark button:hover {
   background-color: #555;       /* subtle hover in dark mode */
 }
 
-/* Footer */
-footer {
-  margin-top: 80px;
-  text-align: center;
-  padding: 20px;
-  background-color: #f0f0f0;
-  color: #000;
-}
