@@ -1,18 +1,23 @@
-const toggle = document.getElementById('theme-toggle');
+// Get references to the HTML element and the two buttons
 const html = document.documentElement;
+const lightBtn = document.getElementById('light-btn');
+const darkBtn = document.getElementById('dark-btn');
 
+// Check saved theme on page load
 if (localStorage.getItem('theme') === 'dark') {
   html.classList.add('dark');
-  toggle.textContent = '☀️';
+} else {
+  html.classList.remove('dark');
 }
 
-toggle.addEventListener('click', () => {
-  html.classList.toggle('dark');
-  if (html.classList.contains('dark')) {
-    toggle.textContent = '☀️';
-    localStorage.setItem('theme', 'dark');
-  } else {
-    toggle.textContent = '🌙';
-    localStorage.setItem('theme', 'light');
-  }
+// Light button click event
+lightBtn.addEventListener('click', () => {
+  html.classList.remove('dark');
+  localStorage.setItem('theme', 'light');
+});
+
+// Dark button click event
+darkBtn.addEventListener('click', () => {
+  html.classList.add('dark');
+  localStorage.setItem('theme', 'dark');
 });
