@@ -9,17 +9,16 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateActiveButton() {
     if (html.classList.contains('dark')) {
       // Dark mode active
-      darkBtn.style.backgroundColor = '#555'; // highlighted
-      darkBtn.style.color = 'white';
+      darkBtn.style.backgroundColor = '#555'; // subtle highlight
       lightBtn.style.backgroundColor = '#f0f0f0'; // neutral
-      lightBtn.style.color = '#000';
     } else {
       // Light mode active
-      lightBtn.style.backgroundColor = '#ffd700'; // highlighted
-      lightBtn.style.color = '#000';
+      lightBtn.style.backgroundColor = '#ddd'; // subtle highlight
       darkBtn.style.backgroundColor = '#f0f0f0'; // neutral
-      darkBtn.style.color = '#000';
     }
+    // Keep emoji colors normal
+    lightBtn.style.color = '#000';
+    darkBtn.style.color = '#000';
   }
 
   // Load saved theme on page load
@@ -46,4 +45,3 @@ document.addEventListener("DOMContentLoaded", () => {
     updateActiveButton();
   });
 });
-
