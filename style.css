@@ -26,19 +26,29 @@ header {
   transition: background-color 0.3s, color 0.3s;
 }
 
+/* Buttons */
 button {
   border: none;
   border-radius: 5px;
   background-color: #f0f0f0;
   color: #000;
-  transition: background-color 0.3s, color 0.3s;
+  padding: 5px 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
 }
 
+/* Dark mode buttons */
 html.dark button {
   background-color: #333;
   color: white;
 }
 
+/* Hover effect */
 button:hover {
-  opacity: 0.8;
+  transform: scale(1.1);       /* slightly enlarge */
+  background-color: #bbb;       /* subtle color change */
+}
+html.dark button:hover {
+  background-color: #555;       /* subtle dark hover */
 }
