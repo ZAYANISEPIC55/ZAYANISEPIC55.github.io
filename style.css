@@ -1,25 +1,25 @@
 :root {
-  --main-color: #06a0e4;      /* KLM blue for light mode text and accents */
-  --bg-color: #eaf3fc;        /* Light mode background */
-  --header-bg: #06a0e4;       /* Header banner in KLM blue */
-  --header-text: white;       /* Header text */
-  --button-bg: #ffffff;       /* Light mode button background */
-  --button-text: #06a0e4;     /* Button text color */
+  --main-color: #06a0e4;
+  --bg-color: #eaf3fc;
+  --header-bg: #06a0e4;
+  --header-text: white;
+  --button-bg: #ffffff;
+  --button-text: #06a0e4;
 }
 
 html.dark {
-  --main-color: #ffffff;      /* White text in dark mode */
-  --bg-color: #1a1a1a;        /* Dark background */
-  --header-bg: #06a0e4;       /* Header stays KLM blue in dark mode */
-  --header-text: white;       /* Header text stays white */
-  --button-bg: #333;          /* Dark mode button background */
-  --button-text: #ffffff;     /* Button text in dark mode */
+  --main-color: #ffffff;
+  --bg-color: #1a1a1a;
+  --header-bg: #06a0e4;
+  --header-text: white;
+  --button-bg: #333;
+  --button-text: #ffffff;
 }
 
 body {
   background-color: var(--bg-color);
   color: var(--main-color);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Updated font */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -28,19 +28,19 @@ header {
   background-color: var(--header-bg);
   color: var(--header-text);
   display: flex;
-  justify-content: flex-start; /* Keep title and buttons together */
+  justify-content: flex-start;
   align-items: center;
-  padding: 10px 40px;          /* Add spacing from edges */
-  gap: 20px;                   /* Space between title and buttons */
-  transition: background-color 0.3s, color 0.3s;
+  padding: 10px 40px;
+  gap: 20px;
 }
 
-main {
-  text-align: center;
-  margin-top: 50px;
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto; /* Push buttons to right */
 }
 
-/* Buttons */
 button {
   border: none;
   border-radius: 5px;
@@ -52,13 +52,44 @@ button {
   transition: transform 0.2s, background-color 0.2s, color 0.2s;
 }
 
-/* Hover effect */
 button:hover {
   transform: scale(1.1);
-  background-color: #bbb;       /* subtle hover in light mode */
+  background-color: #bbb;
 }
 
 html.dark button:hover {
-  background-color: #555;       /* subtle hover in dark mode */
+  background-color: #555;
 }
 
+/* Language dropdown */
+.language-dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--bg-color);
+  min-width: 120px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.dropdown-content div {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown-content div:hover {
+  background-color: #ddd;
+}
+
+.language-dropdown.show .dropdown-content {
+  display: block;
+}
+
+main {
+  text-align: center;
+  margin-top: 50px;
+}
