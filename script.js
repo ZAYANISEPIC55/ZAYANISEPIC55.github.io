@@ -84,11 +84,16 @@ document.addEventListener("DOMContentLoaded", () => {
     dropdown.classList.toggle('show');
   });
 
+  // Make dropdown scrollable if too many languages
+  languageMenu.style.maxHeight = "200px";
+  languageMenu.style.overflowY = "auto";
+
   // Select language
   languageMenu.querySelectorAll('div').forEach(item => {
-    item.addEventListener('click', () => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
       setLanguage(item.getAttribute('data-lang'));
-      dropdown.classList.remove('show');
+      dropdown.classList.remove('show'); // Close immediately after selection
     });
   });
 
