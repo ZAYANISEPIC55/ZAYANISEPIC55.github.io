@@ -6,23 +6,36 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header with dark/light buttons -->
-  <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: #06a0e4; color: white;">
-    <h1 style="margin: 0; font-size: 24px;">KLM Virtual</h1>
-    <div>
-      <button id="light-btn" style="font-size: 18px; padding: 5px 10px; margin-right: 5px; cursor: pointer;">☀️</button>
-      <button id="dark-btn" style="font-size: 18px; padding: 5px 10px; cursor: pointer;">🌙</button>
+  <!-- Header with dark/light buttons and language selector -->
+  <header>
+    <h1>KLM Virtual</h1>
+    <div class="header-buttons">
+      <button id="light-btn">☀️</button>
+      <button id="dark-btn">🌙</button>
+
+      <!-- Language dropdown -->
+      <div class="language-dropdown">
+        <button id="language-btn">🇬🇧 English ▼</button>
+        <div id="language-menu" class="dropdown-content">
+          <div data-lang="en">🇬🇧 English</div>
+          <div data-lang="nl">🇳🇱 Dutch</div>
+          <div data-lang="fr">🇫🇷 French</div>
+          <div data-lang="es">🇪🇸 Spanish</div>
+          <div data-lang="de">🇩🇪 German</div>
+          <div data-lang="it">🇮🇹 Italian</div>
+          <div data-lang="ar">🇸🇦 Arabic</div>
+        </div>
+      </div>
     </div>
   </header>
 
   <!-- Main content -->
-  <main style="text-align: center; margin-top: 50px;">
-    <h1>Welcome to KLM Virtual</h1>
-    <p>Created by Zayan Hussain (ZAYANISEPIC55)</p>
-    <p>This is the first page of your website — hosted free on GitHub Pages!</p>
+  <main>
+    <h1 id="main-title">Welcome to KLM Virtual</h1>
+    <p id="main-subtitle">Created by Zayan Hussain (ZAYANISEPIC55)</p>
+    <p id="main-text">This is the first page of your website — hosted free on GitHub Pages!</p>
   </main>
 
-  <!-- JS for dark/light mode -->
   <script src="script.js"></script>
 </body>
 </html>
