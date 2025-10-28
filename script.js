@@ -5,18 +5,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightBtn = document.getElementById('light-btn');
   const darkBtn = document.getElementById('dark-btn');
 
-  lightBtn.addEventListener('click', () => {
-    html.classList.remove('dark');
-    localStorage.setItem('theme', 'light');
-  });
+  // Function to apply theme
+  function applyTheme(theme) {
+    if (theme === 'dark') html.classList.add('dark');
+    else html.classList.remove('dark');
+    localStorage.setItem('theme', theme);
+  }
 
-  darkBtn.addEventListener('click', () => {
-    html.classList.add('dark');
-    localStorage.setItem('theme', 'dark');
-  });
+  // Load saved theme or auto-detect device preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    applyTheme(savedTheme);
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    applyTheme('dark');
+  } else {
+    applyTheme('light');
+  }
 
-  // Load saved theme
-  if (localStorage.getItem('theme') === 'dark') html.classList.add('dark');
+  // Manual toggle
+  lightBtn.addEventListener('click', () => applyTheme('light'));
+  darkBtn.addEventListener('click', () => applyTheme('dark'));
 
   // Language system
   const languageBtn = document.getElementById('language-btn');
@@ -93,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     item.addEventListener('click', (e) => {
       e.stopPropagation();
       setLanguage(item.getAttribute('data-lang'));
-      dropdown.classList.remove('show'); // Close immediately after selection
+      dropdown.classList.remove('show'); // Close immediately
     });
   });
 
