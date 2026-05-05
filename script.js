@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const translations = {
     en: {
-      title: "Welcome to KLM Virtual",
-      subtitle: "Created by Zayan Hussain (ZAYANISEPIC55)",
-      text: "This is the first page of your website — hosted free on GitHub Pages!"
+      title: "Welcome to my test wesbite",
+      subtitle: "Created by myself Zayan Hussain (ZAYANISEPIC55)",
+      text: "This is the first page of my testing website — hosted free on GitHub Pages!"
     },
     nl: {
       title: "Welkom bij KLM Virtual",
