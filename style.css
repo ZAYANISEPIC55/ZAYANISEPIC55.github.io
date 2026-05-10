@@ -1,44 +1,132 @@
-body{
-  margin:0;
-  font-family: Fredoka, sans-serif;
-  background:#f3f3f3;
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+
+/* 🔷 BASE */
+body {
+  margin: 0;
+  font-family: 'Fredoka', sans-serif;
+  background: #f3f3f3;
 }
 
-.top-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 20px;
-  background:#0047c7;
-  color:white;
+/* 🔷 NAVBAR */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #0047c7;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.nav-links a{
-  color:white;
-  margin:0 10px;
-  text-decoration:none;
+/* 🔷 LINKS */
+.nav-links a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s ease;
 }
 
-.nav-profile{
-  position:relative;
+.nav-links a:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
 }
 
-.dropdown{
-  position:absolute;
-  right:0;
-  top:40px;
-  background:white;
-  color:black;
-  padding:10px;
-  border-radius:10px;
-  display:flex;
-  flex-direction:column;
-  gap:5px;
+/* 🔷 PROFILE AREA */
+.nav-profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.hidden{display:none;}
+/* 🔷 LOGIN BUTTON */
+#loginBtn {
+  background: white;
+  color: #0047c7;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
 
-.page{
-  text-align:center;
-  margin-top:100px;
+#loginBtn:hover {
+  transform: scale(1.05);
+}
+
+/* 🔷 USER MENU */
+#userMenu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+/* 🔷 DROPDOWN */
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 45px;
+  background: white;
+  color: black;
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 140px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* dropdown links/buttons */
+.dropdown a,
+.dropdown button {
+  text-decoration: none;
+  color: black;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.dropdown a:hover,
+.dropdown button:hover {
+  opacity: 0.7;
+}
+
+/* 🔷 HIDDEN */
+.hidden {
+  display: none;
+}
+
+/* 🔷 MAIN PAGE */
+.page {
+  text-align: center;
+  margin-top: 100px;
+}
+
+/* 🔷 MOBILE */
+@media (max-width: 768px) {
+  .top-nav {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .dropdown {
+    right: 50%;
+    transform: translateX(50%);
+  }
 }
