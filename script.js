@@ -1,44 +1,81 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
 /*
-  🔧 SETUP REQUIRED:
-  Replace these with your Supabase project values
+  🔧 SUPABASE CONFIG
 */
-const supabaseUrl = "YOUR_SUPABASE_URL";
-const supabaseKey = "YOUR_SUPABASE_ANON_KEY";
+const supabaseUrl = "https://ejyketssrvhnttejrnxu.supabase.co";
+const supabaseAnonKey = "sb_publishable_w035s5tqUboEs1Z-YCI8Tw_HsCyk9ue";
 
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-// LOGIN (Google OAuth)
-document.getElementById("loginBtn").onclick = async () => {
+/*
+  🔐 LOGIN (Google OAuth)
+*/
+async function login() {
   await supabase.auth.signInWithOAuth({
-    provider: "google"
+    provider: "google",
+    options: {
+      redirectTo: window.location.origin
+    }
   });
-};
+}
+window.login = login;
 
-// LOGOUT
-window.logout = async () => {
-  if(confirm("Are you sure you want to logout?")){
-    await supabase.auth.signOut();
-  }
-};
+/*
+  🚪 LOGOUT (with confirmation)
+*/
+async function logout() {
+  const confirmLogout = confirm("Are you sure you want to logout?");
+  if (!confirmLogout) return;
 
-// MENU TOGGLE
-window.toggleMenu = () => {
-  document.getElementById("dropdown").classList.toggle("hidden");
-};
+  await supabase.auth.signOut();
+}
+window.logout = logout;
 
-// AUTH STATE
-supabase.auth.onAuthStateChange((event, session) => {
-  const user = session?.user;
+/*
+  📋 DROPDOWN MENU TOGGLE
+*/
+function toggleMenu() {
+  document.getElementById("dropdown")?.classList.toggle("hidden");
+}
+window.toggleMenu = toggleMenu;
 
-  if(user){
-    document.getElementById("loginBtn").style.display="none";
-    document.getElementById("userMenu").classList.remove("hidden");
-    document.getElementById("userName").textContent =
-      user.user_metadata?.full_name || user.email;
+/*
+  👤 UPDATE UI BASED ON USER STATE
+*/
+function updateUI(user) {
+  const loginBtn = document.getElementById("loginBtn");
+  const userMenu = document.getElementById("userMenu");
+  const userName = document.getElementById("userName");
+
+  if (!loginBtn || !userMenu) return;
+
+  if (user) {
+    loginBtn.style.display = "none";
+    userMenu.classList.remove("hidden");
+
+    userName.textContent =
+      user.user_metadata?.full_name ||
+      user.email;
   } else {
-    document.getElementById("loginBtn").style.display="block";
-    document.getElementById("userMenu").classList.add("hidden");
+    loginBtn.style.display = "block";
+    userMenu.classList.add("hidden");
   }
+}
+
+/*
+  🔄 GET INITIAL SESSION (IMPORTANT)
+*/
+async function initAuth() {
+  const { data } = await supabase.auth.getSession();
+  updateUI(data.session?.user);
+}
+
+initAuth();
+
+/*
+  🔁 LISTEN FOR LOGIN / LOGOUT CHANGES
+*/
+supabase.auth.onAuthStateChange((_event, session) => {
+  updateUI(session?.user);
 });
