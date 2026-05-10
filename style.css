@@ -1,0 +1,44 @@
+body{
+  margin:0;
+  font-family: Fredoka, sans-serif;
+  background:#f3f3f3;
+}
+
+.top-nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:#0047c7;
+  color:white;
+}
+
+.nav-links a{
+  color:white;
+  margin:0 10px;
+  text-decoration:none;
+}
+
+.nav-profile{
+  position:relative;
+}
+
+.dropdown{
+  position:absolute;
+  right:0;
+  top:40px;
+  background:white;
+  color:black;
+  padding:10px;
+  border-radius:10px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.hidden{display:none;}
+
+.page{
+  text-align:center;
+  margin-top:100px;
+}
