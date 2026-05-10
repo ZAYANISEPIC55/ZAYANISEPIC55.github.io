@@ -9,9 +9,22 @@ const supabaseAnonKey = "sb_publishable_w035s5tqUboEs1Z-YCI8Tw_HsCyk9ue";
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 /*
-  🔐 LOGIN (Google OAuth)
+  🔐 OPEN / CLOSE LOGIN MODAL
 */
-async function login() {
+function openLogin() {
+  document.getElementById("loginModal")?.classList.remove("hidden");
+}
+function closeLogin() {
+  document.getElementById("loginModal")?.classList.add("hidden");
+}
+
+window.openLogin = openLogin;
+window.closeLogin = closeLogin;
+
+/*
+  🔵 GOOGLE LOGIN
+*/
+async function loginWithGoogle() {
   await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
@@ -19,10 +32,37 @@ async function login() {
     }
   });
 }
-window.login = login;
+window.loginWithGoogle = loginWithGoogle;
 
 /*
-  🚪 LOGOUT (with confirmation)
+  ✉️ EMAIL LOGIN (MAGIC LINK)
+*/
+async function loginWithEmail() {
+  const email = document.getElementById("emailInput")?.value;
+
+  if (!email) {
+    alert("Please enter an email");
+    return;
+  }
+
+  const { error } = await supabase.auth.signInWithOtp({
+    email,
+    options: {
+      emailRedirectTo: window.location.origin
+    }
+  });
+
+  if (error) {
+    alert(error.message);
+  } else {
+    alert("Check your email for login link!");
+    closeLogin();
+  }
+}
+window.loginWithEmail = loginWithEmail;
+
+/*
+  🚪 LOGOUT (CONFIRMATION)
 */
 async function logout() {
   const confirmLogout = confirm("Are you sure you want to logout?");
@@ -33,7 +73,7 @@ async function logout() {
 window.logout = logout;
 
 /*
-  📋 DROPDOWN MENU TOGGLE
+  📋 DROPDOWN TOGGLE
 */
 function toggleMenu() {
   document.getElementById("dropdown")?.classList.toggle("hidden");
@@ -41,7 +81,7 @@ function toggleMenu() {
 window.toggleMenu = toggleMenu;
 
 /*
-  👤 UPDATE UI BASED ON USER STATE
+  👤 UPDATE UI
 */
 function updateUI(user) {
   const loginBtn = document.getElementById("loginBtn");
@@ -64,7 +104,7 @@ function updateUI(user) {
 }
 
 /*
-  🔄 GET INITIAL SESSION (IMPORTANT)
+  🔄 INIT SESSION
 */
 async function initAuth() {
   const { data } = await supabase.auth.getSession();
@@ -74,7 +114,7 @@ async function initAuth() {
 initAuth();
 
 /*
-  🔁 LISTEN FOR LOGIN / LOGOUT CHANGES
+  🔁 LISTEN FOR AUTH CHANGES
 */
 supabase.auth.onAuthStateChange((_event, session) => {
   updateUI(session?.user);
