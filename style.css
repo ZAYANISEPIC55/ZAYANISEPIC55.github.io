@@ -5,6 +5,7 @@ body {
   margin: 0;
   font-family: 'Fredoka', sans-serif;
   background: #f3f3f3;
+  color: #222;
 }
 
 /* 🔷 NAVBAR */
@@ -20,12 +21,26 @@ body {
   z-index: 1000;
 }
 
+/* 🔷 LOGO */
+.nav-left a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
+}
+
 /* 🔷 LINKS */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
 .nav-links a {
   color: white;
   margin: 0 10px;
   text-decoration: none;
   font-weight: 500;
+  display: inline-block;
   transition: 0.2s ease;
 }
 
@@ -56,6 +71,7 @@ body {
 
 #loginBtn:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* 🔷 USER MENU */
@@ -78,11 +94,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-width: 140px;
+  min-width: 150px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
 }
 
-/* dropdown links/buttons */
+/* dropdown items */
 .dropdown a,
 .dropdown button {
   text-decoration: none;
@@ -93,6 +110,7 @@ body {
   cursor: pointer;
   font-family: inherit;
   font-size: 14px;
+  padding: 5px;
 }
 
 .dropdown a:hover,
@@ -111,6 +129,41 @@ body {
   margin-top: 100px;
 }
 
+/* 🔷 MODAL (LOGIN POPUP) */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-box button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #0047c7;
+  color: white;
+  cursor: pointer;
+}
+
+.modal-box input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
 /* 🔷 MOBILE */
 @media (max-width: 768px) {
   .top-nav {
@@ -120,7 +173,6 @@ body {
   }
 
   .nav-links {
-    display: flex;
     flex-direction: column;
     gap: 5px;
   }
