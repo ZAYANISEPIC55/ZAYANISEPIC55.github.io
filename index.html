@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velora Studio Pro</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <h1>Velora Studio</h1>
+    <p class="sub">Advanced free visual builder</p>
+
+    <button onclick="switchPage('welcome')">Welcome</button>
+    <button onclick="switchPage('builder')">Builder</button>
+    <button onclick="switchPage('templates')">Templates</button>
+
+    <hr>
+
+    <button onclick="addBlock('heading')">Add Heading</button>
+    <button onclick="addBlock('text')">Add Text</button>
+    <button onclick="addBlock('button')">Add Button</button>
+    <button onclick="addBlock('image')">Add Image</button>
+    <button onclick="addBlock('divider')">Add Divider</button>
+    <button onclick="duplicateSelected()">Duplicate</button>
+    <button onclick="deleteSelected()">Delete</button>
+    <button onclick="moveSelected(-1)">Move Up</button>
+    <button onclick="moveSelected(1)">Move Down</button>
+
+    <hr>
+
+    <label>Font Size
+      <input type="range" min="12" max="88" value="18" oninput="setStyle('fontSize', this.value + 'px')">
+    </label>
+
+    <label>Padding
+      <input type="range" min="0" max="60" value="12" oninput="setStyle('padding', this.value + 'px')">
+    </label>
+
+    <label>Border Radius
+      <input type="range" min="0" max="50" value="10" oninput="setStyle('borderRadius', this.value + 'px')">
+    </label>
+
+    <input type="color" onchange="setStyle('color', this.value)">
+    <input type="color" onchange="setStyle('background', this.value)">
+
+    <button onclick="alignSelected('left')">Left</button>
+    <button onclick="alignSelected('center')">Center</button>
+    <button onclick="alignSelected('right')">Right</button>
+
+    <input type="file" id="upload" accept="image/*" onchange="uploadImage(event)">
+
+    <hr>
+
+    <button onclick="saveProject()">Save Project</button>
+    <button onclick="loadProject()">Load Project</button>
+    <button onclick="exportHTML()">Download HTML</button>
+    <button onclick="resetCanvas()">Reset</button>
+
+    <p class="warn">Warning: if you leave before saving, your work may be lost.</p>
+  </aside>
+
+  <main class="main">
+    <section id="welcome" class="page active">
+      <div class="hero">
+        <h2 contenteditable="true">Welcome to Velora Studio Pro</h2>
+        <p contenteditable="true">Build beautiful websites instantly. No login. Fully editable. Save and export anytime.</p>
+        <button class="start" onclick="switchPage('builder')">Start Now</button>
+      </div>
+    </section>
+
+    <section id="builder" class="page">
+      <div id="canvas" class="canvas">
+        <div class="editable selected" contenteditable="true">Click any block and edit instantly.</div>
+      </div>
+    </section>
+
+    <section id="templates" class="page">
+      <div class="templates">
+        <div class="template-card" onclick="applyTemplate('landing')">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200">
+          <h3>Startup Landing</h3>
+        </div>
+        <div class="template-card" onclick="applyTemplate('portfolio')">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43?w=1200">
+          <h3>Portfolio</h3>
+        </div>
+        <div class="template-card" onclick="applyTemplate('agency')">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200">
+          <h3>Agency</h3>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
