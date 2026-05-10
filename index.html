@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,36 +11,46 @@
 
 <body>
 
+<!-- 🔐 LOGIN MODAL (FIXED LOCATION) -->
+<div id="loginModal" class="modal hidden">
+  <div class="modal-box">
+
+    <h2>Login</h2>
+
+    <button onclick="loginWithGoogle()">Continue with Google</button>
+
+    <input id="emailInput" type="email" placeholder="Email" />
+    <button onclick="loginWithEmail()">Continue with Email</button>
+
+    <button onclick="closeLogin()">Close</button>
+
+  </div>
+</div>
+
 <!-- 🔷 NAVBAR -->
 <nav class="top-nav">
 
-  <!-- LOGO -->
   <div class="nav-left">
     <a href="#">Just4Fun Castles</a>
   </div>
 
-  <!-- LINKS -->
   <div class="nav-links">
     <a href="#">Home</a>
     <a href="#">Castles</a>
     <a href="#">Contact</a>
   </div>
 
-  <!-- PROFILE / AUTH AREA -->
   <div class="nav-profile">
 
-    <!-- LOGIN BUTTON -->
-    <button id="loginBtn" onclick="login()">Login</button>
+    <!-- FIXED: open modal instead of direct login -->
+    <button id="loginBtn" onclick="openLogin()">Login</button>
 
-    <!-- USER MENU (VISIBLE AFTER LOGIN) -->
     <div id="userMenu" class="hidden">
 
       <span id="userName"></span>
 
-      <!-- MENU BUTTON -->
       <button onclick="toggleMenu()">☰</button>
 
-      <!-- DROPDOWN -->
       <div id="dropdown" class="dropdown hidden">
 
         <a href="#">Dashboard</a>
@@ -49,11 +60,12 @@
 
       </div>
     </div>
+
   </div>
 
 </nav>
 
-<!-- 🔷 MAIN PAGE -->
+<!-- 🔷 MAIN -->
 <main class="page">
   <h1>COMING SOON</h1>
 </main>
