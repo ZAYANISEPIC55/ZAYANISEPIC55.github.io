@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0848cc">
+  <title>Calculator | Just4Fun Castles</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/index.html">Just4Fun Castles</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+      <a href="/index.html">Home</a><a href="/castles.html">Our Castles</a>
+      <a href="/calculator.html" aria-current="page">Calculator</a><a href="/info.html">About Us</a><a href="/contact.html">Contact</a>
+    </nav>
+    <a class="book-button" href="/contact.html?enquiry=booking">Book Now</a>
+  </header>
+  <main class="page-main">
+    <section class="page-intro">
+      <p class="eyebrow">PLAN YOUR EVENT</p>
+      <h1>Price Calculator</h1>
+      <p>Get an estimate for your booking. This is an estimate only, not a confirmed quote.</p>
+    </section>
+    <section class="form-panel">
+      <form id="calculator-form">
+        <label for="hire-days">How many days do you need it for?</label>
+        <select id="hire-days" name="days">
+          <option value="1">1 day</option><option value="2">2 days</option><option value="3">3 days</option>
+        </select>
+        <label for="base-price">Price per day (£)</label>
+        <input id="base-price" name="price" type="number" min="0" step="1" value="0" required>
+        <p class="field-hint">Enter the daily price you've been quoted. We haven't added official prices yet.</p>
+        <button class="primary-button" type="submit">Calculate estimate</button>
+        <output id="estimate-result" class="estimate-result" aria-live="polite"></output>
+      </form>
+    </section>
+  </main>
+  <footer class="site-footer"><a href="/index.html">Just4Fun Castles</a><span>Making events more fun.</span></footer>
+  <script src="/assets/script.js" defer></script>
+</body>
+</html>

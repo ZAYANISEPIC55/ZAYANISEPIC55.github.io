@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0848cc">
+  <title>Contact & Bookings | Just4Fun Castles</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/index.html">Just4Fun Castles</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+      <a href="/index.html">Home</a><a href="/castles.html">Our Castles</a>
+      <a href="/calculator.html">Calculator</a><a href="/info.html">About Us</a><a href="/contact.html" aria-current="page">Contact</a>
+    </nav>
+    <a class="book-button" href="/contact.html?enquiry=booking">Book Now</a>
+  </header>
+  <main class="page-main">
+    <section class="page-intro">
+      <p class="eyebrow">WE'RE HERE TO HELP</p>
+      <h1>Contact & Bookings</h1>
+      <p>Ask a question or tell us about the event you're planning.</p>
+    </section>
+    <section class="form-panel">
+      <form id="contact-form">
+        <label for="name">Your name</label>
+        <input id="name" name="name" autocomplete="name" required>
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+        <label for="phone">Phone number (optional)</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel">
+        <label for="enquiry-type">What can we help with?</label>
+        <select id="enquiry-type" name="enquiry">
+          <option value="general">General question</option><option value="booking">Booking enquiry</option><option value="castle">Question about a castle</option>
+        </select>
+        <label for="message">Your message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <button class="primary-button" type="submit">Prepare email</button>
+        <p class="field-hint">This opens your email app with the message prepared. Check the recipient address in the code before publishing.</p>
+        <output id="contact-result" class="estimate-result" aria-live="polite"></output>
+      </form>
+    </section>
+  </main>
+  <footer class="site-footer"><a href="/index.html">Just4Fun Castles</a><span>Making events more fun.</span></footer>
+  <script src="/assets/script.js" defer></script>
+</body>
+</html>
